@@ -1,6 +1,6 @@
 {
-  "name": "@slynova/flydrive-s3",
-  "version": "1.0.3",
+  "name": "@adamcikado/flydrive-s3",
+  "version": "1.0.4",
   "description": "AWS S3 driver for @slynova/flydrive",
   "homepage": "https://github.com/Slynova-Org/flydrive#readme",
   "license": "MIT",
@@ -32,10 +32,10 @@
     "aws-sdk": "^2.680.0"
   },
   "peerDependencies": {
-    "@slynova/flydrive": "^1.0.0"
+    "@adamcikado/flydrive": "^1.0.0"
   },
   "devDependencies": {
-    "@slynova/flydrive": "^1.0.3",
+    "@adamcikado/flydrive": "^1.0.3",
     "@types/fs-extra": "^9.0.1",
     "fs-extra": "^9.0.0"
   },

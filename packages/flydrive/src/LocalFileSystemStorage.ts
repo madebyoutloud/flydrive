@@ -179,7 +179,7 @@ export class LocalFileSystemStorage extends Storage {
 	 * Creates a new file.
 	 * This method will create missing directories on the fly.
 	 */
-	public async put(location: string, content: Buffer | NodeJS.ReadableStream | string): Promise<Response> {
+	public async put(location: string, content: Buffer | NodeJS.ReadableStream | string, options: object = {}): Promise<Response> {
 		const fullPath = this._fullPath(location);
 
 		try {

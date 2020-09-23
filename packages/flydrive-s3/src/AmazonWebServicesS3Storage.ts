@@ -20,7 +20,7 @@ import {
 	StatResponse,
 	FileListResponse,
 	DeleteResponse,
-} from '@slynova/flydrive';
+} from '@adamcikado/flydrive';
 
 function handleError(err: Error, path: string, bucket: string): Error {
 	switch (err.name) {
@@ -215,8 +215,8 @@ export class AmazonWebServicesS3Storage extends Storage {
 	 * Creates a new file.
 	 * This method will create missing directories on the fly.
 	 */
-	public async put(location: string, content: Buffer | NodeJS.ReadableStream | string): Promise<Response> {
-		const params = { Key: location, Body: content, Bucket: this.$bucket };
+	public async put(location: string, content: Buffer | NodeJS.ReadableStream | string, options: object = {}): Promise<Response> {
+		const params = Object.assign({}, options, { Key: location, Body: content, Bucket: this.$bucket });
 		try {
 			const result = await this.$driver.upload(params).promise();
 			return { raw: result };
