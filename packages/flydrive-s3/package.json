@@ -1,6 +1,6 @@
 {
   "name": "@madebyoutloud/flydrive-s3",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "AWS S3 driver for @slynova/flydrive",
   "homepage": "https://github.com/Slynova-Org/flydrive#readme",
   "license": "MIT",
@@ -35,7 +35,7 @@
     "@madebyoutloud/flydrive": "^1.0.0"
   },
   "devDependencies": {
-    "@madebyoutloud/flydrive": "^1.0.3",
+    "@madebyoutloud/flydrive": "^1.1.0",
     "@types/fs-extra": "^9.0.1",
     "fs-extra": "^9.0.0"
   },
