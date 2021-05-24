@@ -29,7 +29,7 @@
     "prepare": "tsc -b tsconfig.json"
   },
   "dependencies": {
-    "aws-sdk": "^2.680.0"
+    "aws-sdk": "^2.852.0"
   },
   "peerDependencies": {
     "@madebyoutloud/flydrive": "^1.0.0"

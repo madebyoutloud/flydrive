@@ -27,7 +27,7 @@
     "prepare": "tsc -b tsconfig.json"
   },
   "dependencies": {
-    "@google-cloud/storage": "^5.0.0"
+    "@google-cloud/storage": "^5.8.0"
   },
   "peerDependencies": {
     "@madebyoutloud/flydrive": "^1.0.0"
