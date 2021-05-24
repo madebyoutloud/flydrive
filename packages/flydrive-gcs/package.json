@@ -1,5 +1,5 @@
 {
-  "name": "@madebyoutloud/flydrive-gcs",
+  "name": "@outloud/flydrive-gcs",
   "version": "1.1.0",
   "description": "Google Cloud Storage driver for @slynova/flydrive",
   "homepage": "https://github.com/Slynova-Org/flydrive#readme",
@@ -30,11 +30,11 @@
     "@google-cloud/storage": "^5.8.0"
   },
   "peerDependencies": {
-    "@madebyoutloud/flydrive": "^1.0.0"
+    "@outloud/flydrive": "^1.0.0"
   },
   "devDependencies": {
     "@lukeed/uuid": "^1.0.1",
-    "@madebyoutloud/flydrive": "^1.1.0"
+    "@outloud/flydrive": "^1.1.0"
   },
   "publishConfig": {
     "access": "public"

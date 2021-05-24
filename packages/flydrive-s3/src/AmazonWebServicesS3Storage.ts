@@ -20,7 +20,7 @@ import {
 	StatResponse,
 	FileListResponse,
 	DeleteResponse,
-} from '@madebyoutloud/flydrive';
+} from '@outloud/flydrive';
 
 function handleError(err: Error, path: string, bucket: string): Error {
 	switch (err.name) {

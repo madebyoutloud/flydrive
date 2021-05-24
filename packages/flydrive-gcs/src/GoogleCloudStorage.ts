@@ -30,7 +30,7 @@ import {
 	UnknownException,
 	AuthorizationRequired,
 	WrongKeyPath,
-} from '@madebyoutloud/flydrive';
+} from '@outloud/flydrive';
 
 function handleError(err: Error & { code?: number | string }, path: string): Error {
 	switch (err.code) {
