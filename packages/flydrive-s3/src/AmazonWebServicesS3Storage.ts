@@ -20,7 +20,7 @@ import {
 	StatResponse,
 	FileListResponse,
 	DeleteResponse,
-} from '@adamcikado/flydrive';
+} from '@madebyoutloud/flydrive';
 
 function handleError(err: Error, path: string, bucket: string): Error {
 	switch (err.name) {
@@ -114,8 +114,8 @@ export class AmazonWebServicesS3Storage extends Storage {
 	/**
 	 * Returns the file contents.
 	 */
-	public async get(location: string, encoding: BufferEncoding = 'utf-8'): Promise<ContentResponse<string>> {
-		const bufferResult = await this.getBuffer(location);
+	public async get(location: string, encoding: BufferEncoding = 'utf-8', options: object = {}): Promise<ContentResponse<string>> {
+		const bufferResult = await this.getBuffer(location, options);
 		return {
 			content: bufferResult.content.toString(encoding),
 			raw: bufferResult.raw,
@@ -125,8 +125,12 @@ export class AmazonWebServicesS3Storage extends Storage {
 	/**
 	 * Returns the file contents as Buffer.
 	 */
-	public async getBuffer(location: string): Promise<ContentResponse<Buffer>> {
-		const params = { Key: location, Bucket: this.$bucket };
+	public async getBuffer(location: string, options: object = {}): Promise<ContentResponse<Buffer>> {
+		const params = Object.assign(
+			{},
+			options,
+			{ Key: location, Bucket: this.$bucket }
+		);
 
 		try {
 			const result = await this.$driver.getObject(params).promise();
@@ -143,16 +147,10 @@ export class AmazonWebServicesS3Storage extends Storage {
 	/**
 	 * Returns signed url for an existing file
 	 */
-	public async getSignedUrl(location: string, options: SignedUrlOptions = {}): Promise<SignedUrlResponse> {
-		const { expiry = 900 } = options;
+	public async getSignedUrl(location: string, options: object = {}): Promise<SignedUrlResponse> {
+		const params = Object.assign({}, options, { Key: location, Bucket: this.$bucket });
 
 		try {
-			const params = {
-				Key: location,
-				Bucket: this.$bucket,
-				Expires: expiry,
-			};
-
 			const result = await this.$driver.getSignedUrlPromise('getObject', params);
 			return { signedUrl: result, raw: result };
 		} catch (e) {
@@ -181,8 +179,8 @@ export class AmazonWebServicesS3Storage extends Storage {
 	/**
 	 * Returns the stream for the given file.
 	 */
-	public getStream(location: string): NodeJS.ReadableStream {
-		const params = { Key: location, Bucket: this.$bucket };
+	public getStream(location: string, options: object = {}): NodeJS.ReadableStream {
+		const params = Object.assign({}, options, { Key: location, Bucket: this.$bucket });
 
 		return this.$driver.getObject(params).createReadStream();
 	}

@@ -72,7 +72,7 @@ export default abstract class Storage {
 	 *
 	 * Supported drivers: "local", "s3", "gcs"
 	 */
-	get(location: string, encoding?: string): Promise<ContentResponse<string>> {
+	get(location: string, encoding?: string, options?: object): Promise<ContentResponse<string>> {
 		throw new MethodNotSupported('get', this.constructor.name);
 	}
 
@@ -81,7 +81,7 @@ export default abstract class Storage {
 	 *
 	 * Supported drivers: "local", "s3", "gcs"
 	 */
-	getBuffer(location: string): Promise<ContentResponse<Buffer>> {
+	getBuffer(location: string, options?: object): Promise<ContentResponse<Buffer>> {
 		throw new MethodNotSupported('getBuffer', this.constructor.name);
 	}
 
@@ -90,7 +90,7 @@ export default abstract class Storage {
 	 *
 	 * Supported drivers: "s3", "gcs"
 	 */
-	getSignedUrl(location: string, options?: SignedUrlOptions): Promise<SignedUrlResponse> {
+	getSignedUrl(location: string, options?: object): Promise<SignedUrlResponse> {
 		throw new MethodNotSupported('getSignedUrl', this.constructor.name);
 	}
 
@@ -108,7 +108,7 @@ export default abstract class Storage {
 	 *
 	 * Supported drivers: "local", "s3", "gcs"
 	 */
-	getStream(location: string): NodeJS.ReadableStream {
+	getStream(location: string, options?: object): NodeJS.ReadableStream {
 		throw new MethodNotSupported('getStream', this.constructor.name);
 	}
 
